@@ -15,8 +15,10 @@ openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -node
 ```
 - create .env and change attributes accordingly
 ```dotenv
-PORT="[port that will be opened]"
-URL="[url where the host IP should be sent to]"
+# port that will be opened
+PORT=" "
+# url where the host IP should be sent to
+URL=" "
 ```
 - run via commandline
 ```commandline
