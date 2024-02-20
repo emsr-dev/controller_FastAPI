@@ -12,6 +12,7 @@ hostname = socket.gethostname()
 IPAddr = socket.gethostbyname(hostname)
 
 
+# TODO: fix ConnectionResetError or catch it
 if __name__ == '__main__':
     try:
         requests.post(URL, json={'ip': IPAddr})
