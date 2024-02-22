@@ -2,15 +2,31 @@ import os
 from dotenv import load_dotenv
 import socket
 import requests
+
 import uvicorn
 
 load_dotenv()
 PORT = os.environ.get('PORT')
 URL = os.environ.get('URL')
 
-hostname = socket.gethostname()
-IPAddr = socket.gethostbyname(hostname)
+IPAddr: str
 
+
+def get_ip():
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    s.settimeout(0)
+    try:
+        # doesn't even have to be reachable
+        s.connect(('10.254.254.254', 1))
+        ip = s.getsockname()[0]
+    except Exception:
+        ip = '127.0.0.1'
+    finally:
+        s.close()
+    return ip
+
+
+IPAddr = get_ip()
 
 # TODO: fix ConnectionResetError or catch it
 if __name__ == '__main__':
