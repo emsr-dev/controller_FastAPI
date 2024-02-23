@@ -2,6 +2,7 @@ import os
 from dotenv import load_dotenv
 import socket
 import requests
+import asyncio
 
 import uvicorn
 
@@ -28,13 +29,15 @@ def get_ip():
 
 IPAddr = get_ip()
 
-# TODO: fix ConnectionResetError or catch it
+
 if __name__ == '__main__':
     try:
         requests.post(URL, json={'ip': IPAddr})
         print(f"IP sent to {URL}")
     except Exception as e:
         print(e)
+
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
     uvicorn.run(
         "src:app",
