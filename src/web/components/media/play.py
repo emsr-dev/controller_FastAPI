@@ -5,12 +5,12 @@ play_router = APIRouter(prefix='/media')
 
 
 @play_router.get('/play')
-def play_get():
+def get():
     return {'success': True}
 
 
 @play_router.post('/play')
-def play_post():
+def post():
     message = play_pause()
     return {
         'message': message,
@@ -19,12 +19,12 @@ def play_post():
 
 
 @play_router.get('/pause')
-def pause_get():
+def get():
     return {'success': True}
 
 
 @play_router.post('/pause')
-def pause_post():
+def post():
     message = play_pause()
     return {
         'message': message,
@@ -33,12 +33,12 @@ def pause_post():
 
 
 @play_router.get('/next')
-def next_get():
+def get():
     return {'success': True}
 
 
 @play_router.post('/next')
-def next_post():
+def post():
     message = next_track()
     return {
         'message': message,
@@ -47,12 +47,12 @@ def next_post():
 
 
 @play_router.get('/prev')
-def prev_get():
+def get():
     return {'success': True}
 
 
 @play_router.post('/prev')
-def prev_post():
+def post():
     message = prev_track()
     return {
         'message': message,
@@ -61,12 +61,12 @@ def prev_post():
 
 
 @play_router.get('/left')
-def left_get():
+def get():
     return {'success': True}
 
 
 @play_router.post('/left')
-def left_post():
+def post():
     message = left()
     return {
         'message': message,
@@ -75,12 +75,12 @@ def left_post():
 
 
 @play_router.get('/right')
-def right_get():
+def get():
     return {'success': True}
 
 
 @play_router.post('/right')
-def right_post():
+def post():
     message = right()
     return {
         'message': message,
@@ -89,12 +89,12 @@ def right_post():
 
 
 @play_router.get('/up')
-def up_get():
+def get():
     return {'success': True}
 
 
 @play_router.post('/up')
-def up_post():
+def post():
     message = up()
     return {
         'message': message,
@@ -103,12 +103,12 @@ def up_post():
 
 
 @play_router.get('/down')
-def down_get():
+def get():
     return {'success': True}
 
 
 @play_router.post('/down')
-def down_post():
+def post():
     message = down()
     return {
         'message': message,
@@ -117,12 +117,12 @@ def down_post():
 
 
 @play_router.get('/enter')
-def enter_get():
+def get():
     return {'success': True}
 
 
 @play_router.post('/enter')
-def enter_post():
+def post():
     message = enter()
     return {
         'message': message,
@@ -131,12 +131,12 @@ def enter_post():
 
 
 @play_router.get('/esc')
-def esc_get():
+def get():
     return {'success': True}
 
 
 @play_router.post('/esc')
-def esc_post():
+def post():
     message = esc()
     return {
         'message': message,
@@ -145,12 +145,12 @@ def esc_post():
 
 
 @play_router.get('/full')
-def full_get():
+def get():
     return {'success': True}
 
 
 @play_router.post('/full')
-def full_post():
+def post():
     message = f11()
     return {
         'message': message,
@@ -159,12 +159,12 @@ def full_post():
 
 
 @play_router.get('/mute')
-def mute_get():
+def get():
     return {'success': True}
 
 
 @play_router.post('/mute')
-def mute_post():
+def post():
     message = mute()
     return {
         'message': message,

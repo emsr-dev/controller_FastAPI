@@ -1,15 +1,10 @@
 # Getting Started
 ## Start Server
-- clone repository
+- install requirements
 ```commandline
-git clone https://github.com/KyrenRE/controler_FastAPI.git
-```
-- update pip and install requirements
-```commandline
-pip install --upgrade pip
 pip install -r requirements.txt
 ```
-- create the ssl certificate and key in bash
+- create the ssl certificate and key with bash
 ```bash
 openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes -subj '/CN=issuer'
 ```

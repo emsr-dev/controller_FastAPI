@@ -1,6 +1,6 @@
 import json
 
-from fastapi import APIRouter, Body
+from fastapi import APIRouter
 from src.controllers.media.volume import *
 
 volume_router = APIRouter(prefix='/media')
@@ -13,29 +13,29 @@ def volume_get():
 
 
 @volume_router.post('/volume')
-def volume_post(volume: int = Body(..., embed=True)):
+def volume_post(volume: int):
     return post_volume(volume)
 
 
 # volume up
 @volume_router.get('/volume/up')
-def volume_up_get():
+def get():
     return get_volume_json()
 
 
 @volume_router.post('/volume/up')
-def volume_up_post():
+def post():
     return post_volume(int(get_volume_json()['volume'])+1)
 
 
 # volume down
 @volume_router.get('/volume/down')
-def volume_down_get():
+def get():
     return get_volume_json()
 
 
 @volume_router.post('/volume/down')
-def volume_down_post():
+def post():
     return post_volume(int(get_volume_json()['volume'])-1)
 
 

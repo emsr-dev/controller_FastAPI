@@ -1,8 +1,26 @@
 from fastapi import FastAPI
-from .components import root_router, volume_router, play_router
+from fastapi.middleware.cors import CORSMiddleware
+from starlette.responses import FileResponse
+
+from .components import volume_router, play_router
 
 app = FastAPI()
 
-app.include_router(root_router)
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["GET", "POST"],
+    allow_headers=["*"]
+)
+
+
 app.include_router(volume_router)
 app.include_router(play_router)
+
+
+@app.get("/")
+async def root():
+    return FileResponse('src/web/templates/root.html')

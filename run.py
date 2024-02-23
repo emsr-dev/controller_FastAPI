@@ -32,10 +32,13 @@ IPAddr = get_ip()
 
 if __name__ == '__main__':
     try:
-        requests.post(URL, json={'ip': IPAddr})
-        print(f"IP sent to {URL}")
+        requests.post(URL, json={
+            'ip': IPAddr,
+            'port': PORT
+        })
+        print(f"\33[32mINFO\33[0m:     IP and PORT were sent to \33[1m{URL}\33[0m")
     except Exception as e:
-        print(e)
+        print(f"\33[31mERROR\33[0m:    request was not accepted by \33[1m{URL}\33[0m")
 
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
@@ -47,3 +50,5 @@ if __name__ == '__main__':
         ssl_keyfile='key.pem',
         ssl_certfile='cert.pem'
     )
+
+    input('\33[5mPress ENTER to exit\33[0m')
