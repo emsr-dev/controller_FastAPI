@@ -30,7 +30,7 @@ def get_ip():
 IPAddr = get_ip()
 
 
-if __name__ == '__main__':
+def main():
     try:
         requests.post(URL, json={
             'ip': IPAddr,
@@ -51,4 +51,11 @@ if __name__ == '__main__':
         ssl_certfile='cert.pem'
     )
 
-    input('\33[5mPress ENTER to exit\33[0m')
+    try:
+        input("\33[5mPress ENTER to exit\33[0m")
+    except UnicodeDecodeError:
+        pass
+
+
+if __name__ == '__main__':
+    main()
